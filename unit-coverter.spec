@@ -1,4 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
+import os, sys
 
 
 a = Analysis(
@@ -14,6 +15,10 @@ a = Analysis(
     noarchive=False,
     optimize=0,
 )
+
+if sys.platform.startswith('linux'):
+    a.binaries = [b for b in a.binaries if not b[0].startswith('libfontconfig')]
+    
 pyz = PYZ(a.pure)
 
 exe = EXE(
