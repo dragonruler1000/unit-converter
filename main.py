@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from convert import convert
 
 root = Tk(className="DragonUnits")
 root.title("Dragon Units")
@@ -7,12 +8,55 @@ root.title("Dragon Units")
 mainframe = ttk.Frame(root, padding=(3, 3, 12, 12))
 mainframe.grid(column=0, row=0, sticky=(N, W, S, E))
 
-UNITS = {
-    "1": ("Inches"),
-    "2": ("Centameters"),
-    "3": ("Feet"),
-    
-}
+def gconvert():
+    x = amount.get()
+    print(x)
+    src = unit1.get()
+    print(src)
+    dst = unit2.get()
+    print(dst)
+    try:
+        value = float(amount.get())
+    except ValueError:
+        result.config(text="That's not a number. Even beard-seconds need numbers. =P")
+        return
+    print(repr(value), type(value))
+    result1 = convert(value, unit1.get(), unit2.get())
+    result.config(text=result1)
+
+UNITS = {"1": ("smoot"), "2": ("beard second")}
+
+posunits = {name for name in UNITS.values()}
+
+def on_convert():
+    try:
+        value = float(amount.get())
+    except ValueError:
+        result.config(text="That's not a number. Even beard-seconds need numbers.")
+        return
+    result 
+
+amount = ttk.Entry(mainframe, width=20)
+amount.grid(column=0, row=0, sticky=(W, E))
+
+unit1 = ttk.Combobox(
+    mainframe, state="readonly", width=30, values=[name for name in UNITS.values()]
+)
+unit1.current(0),
+unit1.grid(column=1, row=0, sticky=(W, E))
+
+unit2 = ttk.Combobox(
+    mainframe, state="readonly", width=30, values=[name for name in UNITS.values()]
+)
+unit2.current(0)
+unit2.grid(column=2, row=0, sticky=(W, E))
+
+convertbutton = ttk.Button(mainframe, text="convert", command=gconvert)
+convertbutton.grid(column=3, row=0, sticky=(W, E))
+
+result = ttk.Label(mainframe, text="")
+result.grid(column=0, row=1, sticky=(W, E))
+
 
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
