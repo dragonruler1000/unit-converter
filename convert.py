@@ -1,4 +1,4 @@
-# base units are meters
+# the base unit for length is meters
 UNITS = {
     "smoot": {
         "dim": "length",
