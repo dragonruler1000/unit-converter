@@ -18,7 +18,7 @@ a = Analysis(
 
 if sys.platform.startswith('linux'):
     a.binaries = [b for b in a.binaries if not b[0].startswith('libfontconfig')]
-    
+
 pyz = PYZ(a.pure)
 
 exe = EXE(
@@ -27,7 +27,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='unit-coverter',
+    name='unit-coverter-' + os.environ.get('MATRIX_NAME', 'local'),
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
