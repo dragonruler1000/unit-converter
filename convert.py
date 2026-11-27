@@ -141,6 +141,11 @@ UNITS = {
         "dim": length,
         "to_base": lambda x: x * 1e31,
         "from_base": lambda x: x / 1e31
+    },
+    "lightyear": {
+        "dim": length,
+        "to_base": lambda x: x * 9460730472580044,
+        "from_base": lambda x: x / 9460730472580044
     }
 }
 

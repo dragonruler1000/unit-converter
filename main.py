@@ -5,8 +5,8 @@ import os, sys
 
 base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
 
-root = Tk(className="DragonUnits")
-root.title("Dragon Units")
+root = Tk(className="DragonLENGTH")
+root.title("Dragon LENGTH")
 
 root.tk.call("source", os.path.join(base, "themes", "awthemes-10.4.0", "awdark.tcl"))
 root.tk.call("source", os.path.join(base, "themes", "awthemes-10.4.0", "awlight.tcl"))
@@ -32,46 +32,46 @@ def gconvert():
     result.config(text=result1)
 
 
-UNITS = {
+LENGTH = {
     "0": ("smoot"),
     "1": ("beard second"),
     "2": ("inch"),
-    "3": ("square meter"),
-    "4": ("square kilometer"),
-    "5": ("exameter"),
-    "6": ("petameter"),
-    "7": ("terameter"),
-    "8": ("gigameter"),
-    "9": ("megameter"),
-    "10": ("kilometer"),
-    "11": ("hectometer"),
-    "12": ("decameter"),
-    "13": ("meter"),
-    "14": ("decimeter"),
-    "15": ("centameter"),
-    "16": ("milimeter"),
-    "17": ("micrometer"),
-    "18": ("nanometer"),
-    "19": ("picometer"),
-    "20": ("femtometer"),
-    "21": ("attometer"),
-    "22": ("zeptometer"),
-    "23": ("quacometer"),
-    "24": ("mile"),
-    "25": ("yard"),
-    "26": ("break"),
+    "3": ("exameter"),
+    "4": ("petameter"),
+    "5": ("terameter"),
+    "6": ("gigameter"),
+    "7": ("megameter"),
+    "8": ("kilometer"),
+    "9": ("hectometer"),
+    "10": ("decameter"),
+    "11": ("meter"),
+    "12": ("decimeter"),
+    "13": ("centameter"),
+    "14": ("milimeter"),
+    "15": ("micrometer"),
+    "16": ("nanometer"),
+    "17": ("picometer"),
+    "18": ("femtometer"),
+    "19": ("attometer"),
+    "20": ("zeptometer"),
+    "21": ("quacometer"),
+    "22": ("mile"),
+    "23": ("yard"),
+    "24": ("break"),
+    "25": ("lightyear"),
+    "26": ("furlong"),
 }
 
-posunits = {name for name in UNITS.values()}
+poslength = {name for name in LENGTH.values()}
 
 
 def on_convert():
     try:
         value = float(amount.get())
     except ValueError:
-        result.config(text="That's not a number. Even beard-seconds need numbers.")
+        lenresult.config(text="That's not a number. Even beard-seconds need numbers.")
         return
-    result
+    lenresult
 
 
 unitframe = ttk.Frame(mainframe, padding=(3, 3, 12, 12))
@@ -80,27 +80,27 @@ unitframe.grid(column=0, row=0, sticky=(N, E, S, W))
 amount = ttk.Entry(unitframe, width=20)
 amount.grid(column=0, row=1, sticky=(W, E))
 
-unit1label = ttk.Label(unitframe, text="Unit to convert from")
-unit1label.grid(column=1, row=0, sticky=(W, E))
+lenunit1label = ttk.Label(unitframe, text="Unit to convert from")
+lenunit1label.grid(column=1, row=0, sticky=(W, E))
 
-unit1 = ttk.Combobox(
-    unitframe, state="readonly", width=30, values=[name for name in UNITS.values()]
+lenunit1 = ttk.Combobox(
+    unitframe, state="readonly", width=30, values=[name for name in LENGTH.values()]
 )
-unit1.grid(column=1, row=1, sticky=(W, E))
+lenunit1.grid(column=1, row=1, sticky=(W, E))
 
 unit2label = ttk.Label(unitframe, text="Unit to convert to")
 unit2label.grid(column=2, row=0, sticky=(W, E))
 
-unit2 = ttk.Combobox(
-    unitframe, state="readonly", width=30, values=[name for name in UNITS.values()]
+lenunit2 = ttk.Combobox(
+    unitframe, state="readonly", width=30, values=[name for name in LENGTH.values()]
 )
-unit2.grid(column=2, row=1, sticky=(W, E))
+lenunit2.grid(column=2, row=1, sticky=(W, E))
 
-convertbutton = ttk.Button(unitframe, text="convert", command=gconvert)
-convertbutton.grid(column=3, row=1, sticky=(W, E))
+lenconvertbutton = ttk.Button(unitframe, text="convert", command=gconvert)
+lenconvertbutton.grid(column=3, row=1, sticky=(W, E))
 
-result = ttk.Label(unitframe, text="")
-result.grid(column=0, row=2, sticky=(W, E))
+lenresult = ttk.Label(unitframe, text="")
+lenresult.grid(column=0, row=2, sticky=(W, E))
 
 s = ttk.Style()
 
