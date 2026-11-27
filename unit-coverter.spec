@@ -1,12 +1,13 @@
 # -*- mode: python ; coding: utf-8 -*-
 import os, sys
 
+datas = [('themes/', 'themes')]
 
 a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=datas,
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
