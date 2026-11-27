@@ -33,19 +33,33 @@ def gconvert():
 
 
 UNITS = {
-    "1": ("smoot"),
-    "2": ("beard second"),
-    "3": ("meter"),
-    "4": ("inch"),
-    "5": ("centameter"),
-    "6": ("milimeter"),
-    "7": ("kilometer"),
-    "8": ("square meter"),
-    "9": ("square kilometer"),
-    "10": ("exameter"),
-    "11": ("petameter"),
-    "12": ("terameter"),
-    "13": ("gigameter")
+    "0": ("smoot"),
+    "1": ("beard second"),
+    "2": ("inch"),
+    "3": ("square meter"),
+    "4": ("square kilometer"),
+    "5": ("exameter"),
+    "6": ("petameter"),
+    "7": ("terameter"),
+    "8": ("gigameter"),
+    "9": ("megameter"),
+    "10": ("kilometer"),
+    "11": ("hectometer"),
+    "12": ("decameter"),
+    "13": ("meter"),
+    "14": ("decimeter"),
+    "15": ("centameter"),
+    "16": ("milimeter"),
+    "17": ("micrometer"),
+    "18": ("nanometer"),
+    "19": ("picometer"),
+    "20": ("femtometer"),
+    "21": ("attometer"),
+    "22": ("zeptometer"),
+    "23": ("quacometer"),
+    "24": ("mile"),
+    "25": ("yard"),
+    "26": ("break"),
 }
 
 posunits = {name for name in UNITS.values()}
@@ -60,24 +74,33 @@ def on_convert():
     result
 
 
-amount = ttk.Entry(mainframe, width=20)
-amount.grid(column=0, row=0, sticky=(W, E))
+unitframe = ttk.Frame(mainframe, padding=(3, 3, 12, 12))
+unitframe.grid(column=0, row=0, sticky=(N, E, S, W))
+
+amount = ttk.Entry(unitframe, width=20)
+amount.grid(column=0, row=1, sticky=(W, E))
+
+unit1label = ttk.Label(unitframe, text="Unit to convert from")
+unit1label.grid(column=1, row=0, sticky=(W, E))
 
 unit1 = ttk.Combobox(
-    mainframe, state="readonly", width=30, values=[name for name in UNITS.values()]
+    unitframe, state="readonly", width=30, values=[name for name in UNITS.values()]
 )
-unit1.grid(column=1, row=0, sticky=(W, E))
+unit1.grid(column=1, row=1, sticky=(W, E))
+
+unit2label = ttk.Label(unitframe, text="Unit to convert to")
+unit2label.grid(column=2, row=0, sticky=(W, E))
 
 unit2 = ttk.Combobox(
-    mainframe, state="readonly", width=30, values=[name for name in UNITS.values()]
+    unitframe, state="readonly", width=30, values=[name for name in UNITS.values()]
 )
-unit2.grid(column=2, row=0, sticky=(W, E))
+unit2.grid(column=2, row=1, sticky=(W, E))
 
-convertbutton = ttk.Button(mainframe, text="convert", command=gconvert)
-convertbutton.grid(column=3, row=0, sticky=(W, E))
+convertbutton = ttk.Button(unitframe, text="convert", command=gconvert)
+convertbutton.grid(column=3, row=1, sticky=(W, E))
 
-result = ttk.Label(mainframe, text="")
-result.grid(column=0, row=1, sticky=(W, E))
+result = ttk.Label(unitframe, text="")
+result.grid(column=0, row=2, sticky=(W, E))
 
 s = ttk.Style()
 
@@ -98,6 +121,14 @@ light = ttk.Radiobutton(
     themesel, text="Light", variable=theme, value="awlight", command=apply_theme
 )
 light.grid(column=1, row=1)
+
+notes = ttk.Frame(mainframe, padding=(3, 3, 12, 12))
+notes.grid(column=0, row=4, sticky=(N, W, S, E))
+
+note = ttk.Label(
+    notes, text="For anyone wondering this converter is not designed for convinece"
+)
+note.grid(column=0, row=0)
 
 apply_theme()
 
