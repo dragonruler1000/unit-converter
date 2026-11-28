@@ -1,4 +1,5 @@
 length = "length"
+area = "area"
 # Base unit for length is the meter
 # Base unit for area is the square meter
 # Base unit for time is the second
@@ -31,6 +32,26 @@ UNITS = {
         "dim": "area",
         "to_base": lambda x: x * 1000,
         "from_base": lambda x: x * 0.001,
+    },
+    "quettameter": {
+        "dim": length,
+        "to_base": lambda x: x * 1e31,
+        "from_base": lambda x: x / 1e31
+    },
+    "ronnameter":{
+        "dim": length,
+        "to_base": lambda x: x * 1e28,
+        "from_base": lambda x: x / 1e28
+    },
+    "yottameter": {
+        "dim": length,
+        "to_base": lambda x: x * 1e25,
+        "from_base": lambda x: x / 1e25
+    },
+    "zettameter": {
+        "dim": length,
+        "to_base": lambda x: x * 1e22,
+        "from_base": lambda x: x / 1e22
     },
     "exameter": {
         "dim": "length",
@@ -67,7 +88,7 @@ UNITS = {
         "to_base": lambda x: x * 100,
         "from_base": lambda x: x / 100,
     },
-    "decameter": {
+    "dekameter": {
         "dim": "length",
         "to_base": lambda x: x * 10,
         "from_base": lambda x: x / 10,
@@ -122,10 +143,20 @@ UNITS = {
         "to_base": lambda x: x * 1e-22,
         "from_base": lambda x: x / 1e-22
     },
-    "quacometer": {
+    "yoctometer": {
         "dim": length,
-        "to_base": lambda x: x * 1e-24,
-        "from_base": lambda x: x / 1e-24
+        "to_base": lambda x: x * 1e-25,
+        "from_base": lambda x: x / 1e-25
+    },
+    "rontometer": {
+        "dim": length,
+        "to_base": lambda x: x * 1e-28,
+        "from_base": lambda x: x / 1e-28
+    },
+    "quectometer": {
+        "dim": length,
+        "to_base": lambda x: x * 1e-31,
+        "from_base": lambda x: x / 1e-31
     },
     "mile": {
         "dim": length,
@@ -146,6 +177,96 @@ UNITS = {
         "dim": length,
         "to_base": lambda x: x * 9460730472580044,
         "from_base": lambda x: x / 9460730472580044
+    },
+    "furlong": {
+        "dim": length,
+        "to_base": lambda x: x * 201.168,
+        "from_base": lambda x: x / 201.168
+    },
+    "chain": {
+        "dim": length,
+        "to_base": lambda x: x * 20.1168,
+        "from_base": lambda x: x / 20.1168
+    },
+    "x-unit": {
+        "dim": length,
+        "to_base": lambda x: x * 1.002079999E-13,
+        "from_base": lambda x: x / 1.002079999E-13
+    },
+    "handbreadth": {
+        "dim": length,
+        "to_base": lambda x: x * 0.0762,
+        "from_base": lambda x: x / 0.0762
+    },
+    "parsec": {
+        "dim": length,
+        "to_base": lambda x: x * 30856775812799588,
+        "from_base": lambda x: x / 30856775812799588
+    },
+    "township": {
+        "dim": area,
+        "to_base": lambda x: x * 93239571.972,
+        "from_base": lambda x: x / 93239571.972
+    },
+    "circular inch": {
+        "dim": area,
+        "to_base": lambda x: x * 0.0005067075,
+        "from_base": lambda x: x / 0.0005067075
+    },
+    "sabin": {
+        "dim": area,
+        "to_base": lambda x: x * 0.09290304,
+        "from_base": lambda x: x / 0.09290304
+    },
+    "varas castellanas cuad": {
+        "dim": area,
+        "to_base": lambda x: x * 0.698737,
+        "from_base": lambda x: x / 0.698737
+    },
+    "acre": {
+        "dim": area,
+        "to_base": lambda x: x * 4046.8564224,
+        "from_base": lambda x: x / 4046.8564224
+    },
+    "hectare": {
+        "dim": area,
+        "to_base": lambda x: x * 10000,
+        "from_base": lambda x: x / 10000
+    },
+    "barn": {
+        "dim": area,
+        "to_base": lambda x: x * 1e-28,
+        "from_base": lambda x: x / 1e-28
+    },
+    "rood": {
+        "dim": area,
+        "to_base": lambda x: x * 1011.7141056,
+        "from_base": lambda x: x / 1011.7141056
+    },
+    "arpent": {
+        "dim": area,
+        "to_base": lambda x: x * 3418.8929237,
+        "from_base": lambda x: x / 3418.8929237
+    },
+    "plaza": {
+        "dim": area,
+        "to_base": lambda x: x * 6400,
+        "from_base": lambda x: x / 6400
+    },
+    "cuerda": {
+        "dim": area,
+        "to_base": lambda x: x * 3930.395625,
+        "from_base": lambda x: x / 3930.395625
+    },
+    "section": {
+        "dim": area,
+        "to_base": lambda x: x * 2589988.1103,
+        "from_base": lambda x: x / 2589988.1103
+    },
+    "foot": {
+        "dim": length,
+        "to_base": lambda x: x * 0.3048,
+        "from_base": lambda x: x / 0.3048
     }
 }
 
